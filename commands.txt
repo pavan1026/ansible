@@ -1,0 +1,6 @@
+ansible all -m ping
+ansible all --list-host
+ansible all -m gather_facts
+ansible all -m gaher_facts -limit ip-address
+ansible all -m apt -a update-cache=true --become --ask-become-pass
+
