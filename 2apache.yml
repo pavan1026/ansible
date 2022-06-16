@@ -10,11 +10,16 @@
        -  docker.io
        -  apache2
       state : absent
+     when: ansible_distribution == "Ubuntu"
       
 
-      #   - name: install docker
-      #apt:
-      #name: docker.io
+   - name: install docker
+     dnf:
+      update_cache: yes       
+      name:
+       - docker
+       - php
+     when: ansible_distribution == "CentOS"      
 
       #   - name: install apache
       #apt:
