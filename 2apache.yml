@@ -1,0 +1,22 @@
+---
+- hosts: all
+  become: true
+  tasks:
+
+   - name: update repository
+     apt:
+      update-cache: yes
+      name:
+       -  docker.io
+       -  apache2
+      state : absent
+      
+
+      #   - name: install docker
+      #apt:
+      #name: docker.io
+
+      #   - name: install apache
+      #apt:
+      #name: apache2
+      #state: latest 
