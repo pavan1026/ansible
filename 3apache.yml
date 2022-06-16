@@ -1,0 +1,29 @@
+---
+- hosts: all
+  become: true
+  tasks:
+
+   - name: update repository
+     apt:
+      update-cache: yes
+     when: ansible_distribution == "Ubuntu"  
+    #when: ansible_distribution in ["debian" , "Ubuntu"] if we have more distributions
+
+   - name: install docker
+     apt:
+      name: docker.io
+      state: absent
+     when: ansible_distribution == "Ubuntu"
+  
+   - name: install apache
+     apt:
+      name: apache2
+      state: absent 
+     when: ansible_distribution == "linux"
+
+   - name: install apache on centos
+     dnf:
+      name: httpd
+      state: absent
+     when: ansible_distribution == "CentOS" and ansible_distribution_version == "8.2"
+

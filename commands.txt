@@ -1,6 +1,15 @@
 ansible all -m ping
 ansible all --list-host
 ansible all -m gather_facts
-ansible all -m gaher_facts -limit ip-address
-ansible all -m apt -a update-cache=true --become --ask-become-pass
+ansible all -m gaher_facts --limit ip-address
+ansible all -m apt -a update-cache=true --become=true 0r( --ask-become-pass) to ask pwd for update
+ansible all -m apt -a "name=docker.io state=latest" --become;  if u want to uninstall "state=absent"
+ansible all -m gather_facts --limit ip-address | grep andible_distributions
 
+
+
+
+
+
+
+https://docs.ansible.com/ansible/latest/collections/ansible/builtin/apt_module.html
